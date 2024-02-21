@@ -1,4 +1,5 @@
-# Make you own Raspberry Pi Camera Stream
+# Make your own Raspberry Pi Camera Stream
+Forked for the Los Alamos Little Theater.
 
 Create your own live stream from a Raspberry Pi using the Pi camera module. Build your own applications from here.
 

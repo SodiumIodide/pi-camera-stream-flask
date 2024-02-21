@@ -124,7 +124,7 @@ body {
 </style>
 </head>
 
-<title>Make - PiStream</title>
+<title>Stagecam</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -137,78 +137,10 @@ body {
 </div>
 
   <div class="top-right-logo">
-  	<a></a>Raspberry Pi - Camera Stream</a>
+  	<a></a>Stagecam</a>
   </div>
 
-
-<div class="navbar">
-
-    <div class="ignoreCall">
-          <a id=decline class="but_def">
-              <button id="button">
-                  <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-              </button>
-         </a>
-    </div>
-
-    <div class="picture">
-          <a href=# id=take-picture class="picture_class">
-              <button id="take-picture-button" onclick="take_picture()">
-                  <i style="background: blue; color: white;" class="fa fa-camera fa-2x" aria-hidden="true"></i>
-              </button>
-         </a>
-    </div>
-
-</div>
-
-
-
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-
-// stop stream - called when pressing red X
-var button = document.getElementById('button');
-
-button.onclick = function() {
-    var div = document.getElementById('newpost');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';
-    }
-    else {
-        div.style.display = 'block';
-    }
-};
-
-// Take and save a photo, call picture function in main.py
-$(function() {
-  $('a#take-picture').on('click', function(e) {
-    e.preventDefault()
-    $.getJSON('/picture',
-        function(data) {
-      //do nothing
-    });
-    return false;
-  });
-});
-
-</script>
-
-<script type="text/javascript">
-// take picture
-var button = document.getElementById('take-pica-button');
-
-button.onclick = function() {
-    var div = document.getElementById('newpost');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';
-    }
-    else {
-        div.style.display = 'block';
-    }
-};
-
-</script>
 
 </body>
 </html>
