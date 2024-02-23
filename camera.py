@@ -21,9 +21,9 @@ class VideoCamera(object):
     def __del__(self):
         self.vs.stop()
 
-    def flip_if_needed(self, frame):
+    def flip_vertically_if_needed(self, frame):
         if self.flip:
-            return np.flip(frame, 0)
+            return np.flip(frame)
         return frame
 
     def get_frame(self):
