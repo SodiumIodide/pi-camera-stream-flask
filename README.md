@@ -37,9 +37,9 @@ For reasons I'll get into a little later, I would not suggest simply closing the
 
 The stagecam program itself is located in the only directory in the `~/Documents` folder. It is a Python script that uses OpenCV to process the video and Flask to host and distribute it over the local network. It's a small machine so I do not know how many simultaneous connections it can handle. I wouldn't expect it to distribute to a whole audience, but I'd imagine at least 10-20 devices can readily connect simultaneously.
 
-The process runs at bootup through a single line in the `/etc/profile` file. At the very end of the file there should be a `sudo python3 [stagecam-directory]/main.py`{:.language-bash .highlight} call. This will spit out some errors about missing resources when first connecting via a secure shell due to the process already running at startup. This is expected as this file is sourced at both startup and login, and as such the stagecam process is already running as the machine boots up. Logging in is simply trying to run it again. Trying to spin up a new process could cause hosting errors which is why I suggest rebooting the machine after doing any maintenance on it.
+The process runs at bootup through a single line in the `/etc/profile` file. At the very end of the file there should be a `sudo python3 [stagecam-directory]/main.py` call. This will spit out some errors about missing resources when first connecting via a secure shell due to the process already running at startup. This is expected as this file is sourced at both startup and login, and as such the stagecam process is already running as the machine boots up. Logging in is simply trying to run it again. Trying to spin up a new process could cause hosting errors which is why I suggest rebooting the machine after doing any maintenance on it.
 
-In general, if there's ever any issues with it, you should be able to readily reboot the machine just by shutting the power off and turning it back on at the outlet location. A secure shell connection is not required but is an alternative to reboot via the `sudo reboot`{:.language-bash .highlight} command. After rebooting the device, it may take 10-15 seconds for the OS to load and for the stagecam process to spin up. You will know it's successful by the camera itself showing a solid red light.
+In general, if there's ever any issues with it, you should be able to readily reboot the machine just by shutting the power off and turning it back on at the outlet location. A secure shell connection is not required but is an alternative to reboot via the `sudo reboot` command. After rebooting the device, it may take 10-15 seconds for the OS to load and for the stagecam process to spin up. You will know it's successful by the camera itself showing a solid red light.
 
 ## Here's how to recreate it
 
@@ -87,7 +87,7 @@ sudo python3 -m pip install -U imutils
 
 A different package manager should have similar such packages but perhaps named differently. You may try to install the Python dependencies using the PyPI package manager via `pip` or `pip3` commands, but I found that certain dependencies like OpenCV take hours to build on a smallboard device and there's no reason to not use the precompiled versions. One important aspect is that you may have to enable legacy camera support on a Raspbian OS installation by running the command `raspi-config`. This setting is located in the "Interface Devices" menu.
 
-After installing these dependencies on a new OS, you should be able to simply edit the `/etc/profile` file and put the same call to `sudo python3 [stagecam-directory]/main.py`{:.language-bash .highlight} at the tail end of it to have the process run at startup.
+After installing these dependencies on a new OS, you should be able to simply edit the `/etc/profile` file and put the same call to `sudo python3 [stagecam-directory]/main.py` at the tail end of it to have the process run at startup.
 
 ## The end
 
