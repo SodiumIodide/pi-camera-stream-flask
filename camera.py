@@ -23,7 +23,7 @@ class VideoCamera(object):
 
     def flip_if_needed(self, frame):
         if self.flip:
-            return np.flip(frame)
+            return imutils.rotate(frame, 180)
         return frame
 
     def get_frame(self):
