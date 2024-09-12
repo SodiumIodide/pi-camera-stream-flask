@@ -87,7 +87,7 @@ sudo python3 -m pip install -U imutils
 
 A different package manager should have similar such packages but perhaps named differently. You may try to install the Python dependencies using the PyPI package manager via `pip` or `pip3` commands, but I found that certain dependencies like OpenCV take hours to build on a smallboard device and there's no reason to not use the precompiled versions. One important aspect is that you may have to enable legacy camera support on a Raspbian OS installation by running the command `raspi-config`. This setting is located in the "Interface Devices" menu.
 
-After installing these dependencies on a new OS, you should be able to simply edit the `/etc/profile` file and put the same call to `sudo python3 [stagecam-directory]/main.py` at the tail end of it to have the process run at startup.
+After installing these dependencies on a new OS, you should be able to execute `sudo crontab -e` and install a cronjob that runs `@reboot sleep 60 && sudo python3 [stagecam-directory]/main.py` such that the camera server will run without user input on startup. Please note the `sleep 60` command, as without it on the current hardware there is an interesting effect where the kernel hardware drivers race against the profile cronjob to re-address the hardware signal inputs that is unfortunately outside the scope of the README. Different hardware may not have the same problem but this took me a while to figure out and so I am writing it down for posterity such that the server head doesn't need to be manually restarted after every bootup.
 
 ## The end
 
